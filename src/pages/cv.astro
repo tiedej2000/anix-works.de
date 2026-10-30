@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout titel="CV/Lebenslauf">
+    <main class="cv">
+        <article class="modell-viewer">
+            <model-viewer
+                src="/modells/cv.glb"
+                alt="Beschreibung des Modells"
+                camera-controls
+                ar
+                interaction-prompt="none"
+                min-camera-orbit="auto 0deg auto"
+                max-camera-orbit="auto 180deg auto"
+                camera-orbit="90deg 90deg auto"
+                shadow-intensity="0"
+                shadow-softness="1"
+                exposure="0.7"
+                style="width: 800px; height: calc(100vh - 200px); z-index: 4;">
+            </model-viewer>
+        </article>
+        <div class="menu cv-menu">
+            <ul>
+                <li data-href="/other/lebenslauf_tiede_justin.pdf" data-external>open in a new tab</li>
+                <li data-href="/other/lebenslauf_tiede_justin.pdf" data-download>download</li>
+                <li data-href="/">go back</li>
+            </ul>
+        </div>
+    </main>
+</Layout>   
+
+<script>
+    import '../scripts/menu.js';
+</script>

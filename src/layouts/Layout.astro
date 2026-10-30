@@ -1,0 +1,31 @@
+---
+import '../styles/reset.css';
+import '../styles/global.scss';
+
+interface Props {
+  titel: string;
+}
+
+const { titel } = Astro.props;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/other/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    <title>{titel}</title>
+  </head>
+  <body class="crt">
+    <slot />
+      <div id="custom-cursor" class="clicked"></div>
+      <script>
+        import '../scripts/cursor.js'; 
+      </script>
+  </body>
+</html>

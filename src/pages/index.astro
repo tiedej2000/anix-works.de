@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout titel="anix.works/Justin_Tiede">
+    <main class="home">
+        <section class="main-container crt">
+            <article class="modell-viewer">
+                 <model-viewer
+                    src="modells/profile.glb"
+                    alt="Beschreibung des Modells"
+                    camera-controls
+                    auto-rotate
+                    rotation-per-second="40deg"
+                    ar
+                    disable-zoom
+                    interaction-prompt="none"
+                    min-camera-orbit="auto 90deg auto"
+                    max-camera-orbit="auto 90deg auto"
+                    camera-orbit="-35deg 0deg auto"
+                    shadow-intensity="0"
+                    shadow-softness="1"
+                    exposure="0.6"
+                    style="width: 150px; height: 200px;">
+                </model-viewer>
+            </article>
+            <article class="menu">
+                <div class="divider">-------------------MENU------------------</div>
+                <ul>
+                    <li data-href="/cv" data-model="/modells/profile.glb">cv/lebenslauf</li>
+                    <li class="disabled" data-model="/modells/html.glb">portfolio</li>
+                    <li class="disabled" data-model="/modells/other.glb">other works</li>
+                    <li data-href="mailto:tiedejustin@protonmail.com" data-model="/modells/mail.glb">mail</li>
+                    <li data-href="https://instagram.com/anix.works" data-model="/modells/instagram.glb">instagram</li>
+                </ul>
+            </article>
+            <article class="controls">
+                <div class="divider">-----------------CONTROLS----------------</div>
+                <ul>
+                    <li>SET: <span>ENTER KEY</span></li>
+                    <li>SELECT: <span>UP/DOWN ARROW</span></li>
+                </ul>
+            </article>
+        </section>
+    </main>
+</Layout>
+
+<script>
+    import '../scripts/menu.js';
+
+    await Promise.all([...document.querySelectorAll("[data-model]")].map((el) => fetch(el.dataset.model)));
+</script>
